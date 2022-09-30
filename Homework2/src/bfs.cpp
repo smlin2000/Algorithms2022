@@ -22,7 +22,7 @@ void bfs(Graph &G, int start, int destination) {
             }
             queue.push(v);
             G.setVisited(v);
-            v = G.trace(u);
+            G.setTrace(u, v);
         }
     }
 }
