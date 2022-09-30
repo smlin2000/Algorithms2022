@@ -22,7 +22,7 @@ void dfs(Graph &G, int start, int destination) {
             }
             stack.push(v);
             G.setVisited(v);
-            G.setTrace(u, v);
+            G.setTrace(v, u);
         }
     }
 }
