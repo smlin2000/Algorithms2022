@@ -1,0 +1,27 @@
+PROJECT_DIR=.
+
+CFLAGS=-I${PROJECT_DIR}/include/
+CC=C:/MinGW/bin/gcc.exe
+CXX=C:/MinGW/bin/g++.exe
+
+# Using OpenCV for Visualization
+OPENCV=1
+ifeq ($(OPENCV), 1)
+	LDFLAGS+=  -IC:/OpenCV/include
+	CFLAGS+= -DOPENCV=1 -LC:/OpenCV/bin -lopencv_imgcodecs341 -lopencv_core341 \
+				-lopencv_highgui341 -lopencv_imgproc341
+endif
+
+SRC_DIR=${PROJECT_DIR}/src
+
+all: run
+
+compile: main
+
+run: compile
+	./bin/main
+
+main: ${SRC_DIR}/linked_list.cpp ${SRC_DIR}/graph.cpp ${SRC_DIR}/queue.cpp ${SRC_DIR}/main.cpp
+	${CXX} ${CFLAGS} $^ ${LDFLAGS} -o bin/$@.exe 
+
+
