@@ -23,8 +23,8 @@ void AVL<T>::update(BSTNode<T> *node) {
 template<class T>
 BSTNode<T>* AVL<T>::rotateRight(BSTNode<T> *node) {
     // YOUR CODE HERE
-    p = node;
-    q = p->left;
+    BSTNode <T> *p = node;
+    BSTNode <T> *q = p->left;
     p->left = q->right;
     q->right = p;
     p->height = update(p);
@@ -35,8 +35,8 @@ BSTNode<T>* AVL<T>::rotateRight(BSTNode<T> *node) {
 template<class T>
 BSTNode<T>* AVL<T>::rotateLeft(BSTNode<T> *node) {
     // YOUR CODE HERE 
-    p = node;
-    q = p->right;
+    BSTNode <T> *p = node;
+    BSTNode <T> *q = p->right;
     p->right = q->left;
     q->left = p;
     p->height = update(p);

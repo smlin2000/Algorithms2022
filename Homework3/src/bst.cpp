@@ -81,7 +81,7 @@ template<class T>
 BSTNode<T> *BST<T>::insert(T key, BSTNode<T> *node) {
     // YOUR CODE HERE
     if (node == NULL){
-        tempNode = new BSTNode<T>(key, this->height, NULL, NULL);
+        BSTNode<T> *tempNode = new BSTNode<T>(key, this->height, NULL, NULL);
         return tempNode;
     }
     if (key < node->key){
@@ -110,9 +110,9 @@ BSTNode<T> *BST<T>::remove(T key, BSTNode<T> *node) {
             return node->right;
         }
         else if (node->right != NULL && node->left != NULL){
-            key2 = findMaximum(node->left);
-            node->key = key2;
-            node->left = remove(key2, node);
+            key = findMaximum(node->left)->key;
+            node->key = key;
+            node->left = remove(key, node);
         }
     }
     else if (key < node->key){
@@ -121,7 +121,7 @@ BSTNode<T> *BST<T>::remove(T key, BSTNode<T> *node) {
     else{
         node->right = remove(key, node->right);
     }
-    return node
+    return node;
 }
 
 
