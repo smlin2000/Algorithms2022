@@ -102,12 +102,12 @@ BSTNode<T> *BST<T>::remove(T key, BSTNode<T> *node) {
             return NULL;
         }
         else if (node->right == NULL && node->left != NULL){
-            BSTNode<T> tempNode = node->left;
+            BSTNode<T> *tempNode = node->left;
             delete node;
             return tempNode;
         }
         else if (node->right != NULL && node->left == NULL){
-            BSTNode<T> tempNode = node->left;
+            BSTNode<T> *tempNode = node->left;
             delete node;
             return tempNode;
         }
