@@ -47,7 +47,7 @@ BSTNode<T>* AVL<T>::rotateLeft(BSTNode<T> *node) {
 template<class T>
 BSTNode<T> *AVL<T>::balance(BSTNode<T> *node) {
     // YOUR CODE HERE
-    node->height = update(node);
+    update(node);
     if (balanceFactor(node) == 2){
         if (balanceFactor(node->right) < 0){
             node->right = rotateRight(node->right);
@@ -67,6 +67,17 @@ BSTNode<T> *AVL<T>::balance(BSTNode<T> *node) {
 template<class T>
 BSTNode<T>* AVL<T>::insert(T key, BSTNode<T> *node) {
     // YOUR CODE HERE
+    if (node == NULL){
+        BSTNode<T> *tempNode = new BSTNode<T>(key);
+    }
+    if (key < node->key){
+        node->left = insert(key, node->left);
+    }
+    else{
+        node->right = insert(key, node->right);
+    }
+    node = balance(node)
+    return node
 }
 
 template<class T>

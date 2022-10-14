@@ -81,7 +81,7 @@ template<class T>
 BSTNode<T> *BST<T>::insert(T key, BSTNode<T> *node) {
     // YOUR CODE HERE
     if (node == NULL){
-        BSTNode<T> *tempNode = new BSTNode<T>(key, this->height, NULL, NULL);
+        BSTNode<T> *tempNode = new BSTNode<T>(key, node->height, NULL, NULL);
         return tempNode;
     }
     if (key < node->key){
