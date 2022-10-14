@@ -112,7 +112,7 @@ BSTNode<T> *BST<T>::remove(T key, BSTNode<T> *node) {
         else if (node->right != NULL && node->left != NULL){
             key = findMaximum(node->left)->key;
             node->key = key;
-            node->left = remove(key, node);
+            node->left = remove(key, node->left);
         }
     }
     else if (key < node->key){
