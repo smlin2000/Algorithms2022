@@ -10,6 +10,7 @@ AVL<T>::AVL() {
 template<class T>
 int AVL<T>::balanceFactor(BSTNode<T> *node) {
     // YOUR CODE HERE
+    return (node->right->height - node->left->height);
 }
 
 template<class T>
@@ -22,16 +23,44 @@ void AVL<T>::update(BSTNode<T> *node) {
 template<class T>
 BSTNode<T>* AVL<T>::rotateRight(BSTNode<T> *node) {
     // YOUR CODE HERE
+    p = node;
+    q = p->left;
+    p->left = q->right;
+    q->right = p;
+    p->height = update(p);
+    q->height = update(q);
+    return q;
 }
 
 template<class T>
 BSTNode<T>* AVL<T>::rotateLeft(BSTNode<T> *node) {
     // YOUR CODE HERE 
+    p = node;
+    q = p->right;
+    p->right = q->left;
+    q->left = p;
+    p->height = update(p);
+    q->height = update(q);
+    return q;
 }
 
 template<class T>
 BSTNode<T> *AVL<T>::balance(BSTNode<T> *node) {
     // YOUR CODE HERE
+    node->height = update(node);
+    if (balanceFactor(node) == 2){
+        if (balanceFactor(node->right) < 0){
+            node->right = rotateRight(node->right);
+        }
+        node = rotateLeft(node);
+    }
+    else if (balanceFactor(node) == -2){
+        if (balanceFactor(node->left) > 0){
+            node->left = rotateleft(node->left);
+        }
+        node = rotateRight(node);
+    }
+    return node;
 }
 
 

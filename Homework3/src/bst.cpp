@@ -40,28 +40,28 @@ template<class T>
 void BST<T>::clear(BSTNode<T> *node) {
     // YOUR CODE HERE
     if (node == NULL){
-        return
+        return;
     }
-    clear(node->left)
-    clear(node->right)
-    delete node
-    node = NULL
+    clear(node->left);
+    clear(node->right);
+    delete node;
+    node = NULL;
 }
 
 template<class T>
 BSTNode<T> *BST<T>::find(T key, BSTNode<T> *node) {
     // YOUR CODE HERE
     if (node == NULL){
-        return NULL
+        return NULL;
     }
     if (node->key == key){
-        return node
+        return node;
     }
     if (key < node->key){
-        return find(key, node->left)
+        return find(key, node->left);
     }
     else{
-        return find(key, node->right)
+        return find(key, node->right);
     }
 }
 
@@ -69,28 +69,28 @@ template<class T>
 BSTNode<T> *BST<T>::findMaximum(BSTNode<T> *node) {
     // YOUR CODE HERE
     if (node == NULL){
-        return node
+        return node;
     }
     if (node->right == NULL){
-        return node
+        return node;
     }
-    return findMaximum(node->right)
+    return findMaximum(node->right);
 }
 
 template<class T>
 BSTNode<T> *BST<T>::insert(T key, BSTNode<T> *node) {
     // YOUR CODE HERE
     if (node == NULL){
-        tempNode = new BSTNode<T>(key, this->height, NULL, NULL)
-        return tempNode
+        tempNode = new BSTNode<T>(key, this->height, NULL, NULL);
+        return tempNode;
     }
     if (key < node->key){
-        node->left = insert(key, node->left)
+        node->left = insert(key, node->left);
     }
     else{
-        node->right = insert(key, node->right)
+        node->right = insert(key, node->right);
     }
-    return node
+    return node;
 }
 
 template<class T>
@@ -98,28 +98,28 @@ BSTNode<T> *BST<T>::remove(T key, BSTNode<T> *node) {
     // YOUR CODE HERE
     if (node->key == key){
         if (node->right == NULL && node->left == NULL){
-            delete node
-            return NULL
+            delete node;
+            return NULL;
         }
         else if (node->right == NULL && node->left != NULL){
-            delete node
-            return node->left
+            delete node;
+            return node->left;
         }
         else if (node->right != NULL && node->left == NULL){
-            delete node
-            return node->right
+            delete node;
+            return node->right;
         }
         else if (node->right != NULL && node->left != NULL){
-            key2 = findMaximum(node->left)
-            node->key = key2
-            node->left = remove(key2, node)
+            key2 = findMaximum(node->left);
+            node->key = key2;
+            node->left = remove(key2, node);
         }
     }
     else if (key < node->key){
-        node->left = remove(key, node->left)
+        node->left = remove(key, node->left);
     }
     else{
-        node->right = remove(key, node->right)
+        node->right = remove(key, node->right);
     }
     return node
 }
