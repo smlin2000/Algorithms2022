@@ -10,9 +10,9 @@ void sort(std::vector<T> &array, int l, int r) {
         return;
     }
     int pivot = (l + r) / 2;
-    std::vector<T> &array1 = new vector();
+    std::vector<T> &array1 = new std::vector<T>();
     for (int i = l; i <= pivot; i++){
-        array1.push_back(array[i])
+        array1.push_back(array[i]);
     }
     array1.shrink_to_fit();
     cout << "\nVector elements are: ";
