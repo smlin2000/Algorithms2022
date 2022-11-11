@@ -15,9 +15,9 @@ void sort(std::vector<T> &array, int l, int r) {
         array1.push_back(array[i]);
     }
     array1.shrink_to_fit();
-    cout << "\nVector elements are: ";
+    std::cout << "\nVector elements are: ";
     for (auto it = array1.begin(); it != array1.end(); it++)
-        cout << *it << " ";
+        std::cout << *it << " ";
 }
 
 template void sort(std::vector<Edge> &array,  int l, int r);
