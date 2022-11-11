@@ -10,9 +10,14 @@ void sort(std::vector<T> &array, int l, int r) {
         return;
     }
     int pivot = (l + r) / 2;
-    std::vector<T>::const_iterator first = array.begin();
-    std::vector<T>::const_iterator last = array.begin() + pivot;
-    std::vector<T> &array1 = newVec(first, last);
+    std::vector<T> &array1 = new vector();
+    for (int i = l; i <= pivot; i++){
+        array1.push_back(array[i])
+    }
+    array1.shrink_to_fit();
+    cout << "\nVector elements are: ";
+    for (auto it = array1.begin(); it != array1.end(); it++)
+        cout << *it << " ";
 }
 
 template void sort(std::vector<Edge> &array,  int l, int r);
