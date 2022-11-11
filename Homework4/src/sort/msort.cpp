@@ -20,10 +20,10 @@ void sort(std::vector<T> &array, int l, int r) {
     int k = m+1;
     for (int i = m+1; i <= r; i++){
         temp[k] = array[i];
-        k++
+        k++;
     }
     for (int i = 0; i < k; i++){
-        array[i]  = temp[k]
+        array[i]  = temp[k];
     }
 }
 
