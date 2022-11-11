@@ -18,8 +18,8 @@ void sort(std::vector<T> &array, int l, int r) {
     for (int i = pivot + 1; pivot <= r; i++){
         array2.push_back(array[i]);
     }*/
-    sort(array, l, pivot)
-    sort(array, pivot+1, r)
+    sort(array, l, pivot);
+    sort(array, pivot+1, r);
 }
 
 template void sort(std::vector<Edge> &array,  int l, int r);
