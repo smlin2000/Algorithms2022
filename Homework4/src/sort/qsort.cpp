@@ -14,10 +14,6 @@ void sort(std::vector<T> &array, int l, int r) {
     for (int i = l; i <= pivot; i++){
         array1.push_back(array[i]);
     }
-    array1.shrink_to_fit();
-    std::cout << "\nVector elements are: ";
-    for (auto it = array1.begin(); it != array1.end(); it++)
-        std::cout << *it << " ";
 }
 
 template void sort(std::vector<Edge> &array,  int l, int r);
