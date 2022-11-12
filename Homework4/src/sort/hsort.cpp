@@ -27,7 +27,6 @@ void heapify(std::vector<T> &heap, int N, int i) {
     if (left >= N){
         return;
     }
-  
 
     /*if (node i has right child // which mean right < N
 
@@ -41,7 +40,7 @@ void heapify(std::vector<T> &heap, int N, int i) {
         candidate = left;
     end if*/
 
-    if (right < N && right > left){
+    if (right < N && heap[right] > heap[left]){
         candidate = right;
     }
     else{
