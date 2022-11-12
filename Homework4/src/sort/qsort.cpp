@@ -4,46 +4,31 @@
 //extern
 std::string sortAlgName = "Quick Sort";
 
-/*template<class T>
-void sort(std::vector<T> &array, int l, int r) {
-    if (l >= r){
-        return;
-    }
-    int pivot = (l + r) / 2;
-    std::vector<T> array1;
-    std::vector<T> array2;
-    for (int i = l; i <= pivot; i++){
-        array1.push_back(array[i]);
-    }
-    for (int i = pivot + 1; pivot <= r; i++){
-        array2.push_back(array[i]);
-    }
-    sort(array1, l, pivot);
-    sort(array2, pivot+1, r);
-
-}*/
 
 template<class T>
 T find_pivot(std::vector<T> &array, int l, int r){
     return array[((r + l)/ 2)];
 }
+
 template<class T>
-int find_next(T pivot, std::vector<T> &array, int l){
-    for (int i = l; i < array.size(); i++){
-        if (array[i] > pivot){
+int find_next(T pivot, std::vector<T> &array, int l, int r) { // add one more argument r 
+    //for (int i = l; i < array.size(); i++){
+    for (int i = l; i <= r; ++i) { // It should only search in range [l..r] 
+        if (array[i] >= pivot){ // find the first value >= pivot
             return i;
         }
     }
-    return 0;
+    return l; // if it could not find, return l instead of zero
 }
 template<class T>
-int find_previous(T pivot, std::vector<T> &array, int r){
-    for (int i = r; i >= 0; i--){
-        if (array[i] < pivot){
+int find_previous(T pivot, std::vector<T> &array, int l, int r) { // add one more argument r
+    //for (int i = r; i >= 0; i--){
+    for (int i = r; i >= l; --i) { // It should only search in range[l..r]
+        if (array[i] <= pivot){ // find the the first value >= pivot
             return i;
         }
     }
-    return 0;
+    return r; //if it could not find, return r instead of zero
 }
 template<class T>
 void insertion_sort(std::vector<T> &array, int l, int r)
@@ -64,25 +49,24 @@ void sort(std::vector<T> &array, int l, int r) {
     if (r - l <= 6){
         insertion_sort(array, l, r);
     }
-    else{
+    else {
         T pivot = find_pivot(array, l, r);
-        int low = find_next(pivot, array, l + 1);
-        int high = find_previous(pivot, array, r - 2);
-        while (low < high){
+        int low = find_next(pivot, array, l, r); // search the index of value > pivot  from l to r
+        int high = find_previous(pivot, array, l, r); // search the index of value < pivot from l to r 
+        while (low <= high) { // if low <= high, it means these two value are in the wrong positions, the swap them
             std::swap(array[low], array[high]);
-            low = find_next(pivot, array, low + 1);
-            high = find_previous(pivot, array, high - 1);
+            low = find_next(pivot, array, low + 1, r);
+            high = find_previous(pivot, array, l, high - 1);
         }
-        array[r - 1] = array[low];
-        array[low] = pivot;
-        sort(array, l, low);
-        sort(array, high, r);
+
+        //array[r - 1] = array[low]; It is not necessary
+        //array[low] = pivot; It is not necessary
+        // after partitioning, we have 2 paritions: a[l...high] <= pivot and a[low..r] >= pivot
+        sort(array, l, high);
+        sort(array, low, r);
     }
 }
 
-/*template int find_pivot(std::vector<int> &array, int l, int r);
-template int find_next(int pivot, std::vector<int> &array, int l);
-template int find_previous(int pivot, std::vector<int> &array, int r);
-template void insertion_sort(std::vector<T> &array, int l, int r);*/
+
 template void sort(std::vector<Edge> &array,  int l, int r);
 template void sort(std::vector<int> &array,  int l, int r);
