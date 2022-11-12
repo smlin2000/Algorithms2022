@@ -79,9 +79,9 @@ void insertion_sort(std::vector<T> &array, int l, int r)
  
 }
 
-template void find_pivot(std::vector<int> &array, int l, int r);
-template void find_next(int pivot, std::vector<int> &array, int l);
-template void find_previous(int pivot, std::vector<int> &array, int r);
+template int find_pivot(std::vector<int> &array, int l, int r);
+template int find_next(int pivot, std::vector<int> &array, int l);
+template int find_previous(int pivot, std::vector<int> &array, int r);
 template void insertion_sort(std::vector<T> &array, int l, int r);
 template void sort(std::vector<Edge> &array,  int l, int r);
 template void sort(std::vector<int> &array,  int l, int r);
