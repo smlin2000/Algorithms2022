@@ -7,15 +7,16 @@ std::string sortAlgName = "Heap Sort";
 template <class T>
 void heapify(std::vector<T> &heap, int N, int i) {
 
-  // N is the size of the current heap
+    // N is the size of the current heap
 
-  // i is the index of current node
-    T candidate;
+    // i is the index of current node
+
+    int candidate;
     //left = index of left child of i // which is 2*i + 1
-    T left = heap[2*i+1];
+    int left = 2 * i + 1;
 
     //right = index of right child of i // which is 2*i + 2
-    T right = heap[2*i+1];
+    int right = 2 * i + 2;
     
 
     /*if node has no chilren then // which mean left >= N
@@ -56,7 +57,7 @@ void heapify(std::vector<T> &heap, int N, int i) {
     end if*/
     
     if (heap[i] < candidate){
-        std::swap(heap[i], candidate);
+        std::swap(heap[i], heap[candidate]);
         heapify(heap, N, candidate);
     }
    
