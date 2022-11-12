@@ -4,6 +4,7 @@
 //extern
 std::string sortAlgName = "Heap Sort";
 
+template <class T>
 void heapify(std::vector<T> &heap, int N, int i) {
 
   // N is the size of the current heap
@@ -69,7 +70,7 @@ void heapify(std::vector<T> &heap, int N, int i) {
 template<class T>
 void sort(std::vector<T> &array, int l, int r) {
     int n = (r - l + 1);
-    std::vector<T> &heap;
+    std::vector<T> &heap(n);
     for (int i = l; i <= r; i++){
         heap [i - l] = array[i]
     }
