@@ -71,7 +71,7 @@ void heapify(std::vector<T> &heap, int N, int i) {
 template<class T>
 void sort(std::vector<T> &array, int l, int r) {
     int n = (r - l + 1);
-    std::vector<T> &heap = new int[n];
+    std::vector<T> &heap = new T[n];
     for (int i = l; i <= r; i++){
         heap [i - l] = array[i];
     }
