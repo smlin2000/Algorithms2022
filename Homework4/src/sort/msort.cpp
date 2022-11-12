@@ -6,6 +6,7 @@ std::string sortAlgName = "Merge Sort";
 
 template <class T>
 void merge(std::vector<T> &array, int l, int m, int r){
+    std::cout << "Merging";
     std::vector<T> temp;
     for (int i = l; i <= m; i++){
         temp[i] = array[i];
@@ -23,6 +24,7 @@ void merge(std::vector<T> &array, int l, int m, int r){
 template<class T>
 void insertion_sort(std::vector<T> &array, int l, int r)
 {
+    std::cout << "Insertion Sort";
     for(int i=l+1;i<r+1;i++){
         T val = array[i] ;
         int k = i ;
@@ -41,6 +43,7 @@ void sort(std::vector<T> &array, int l, int r) {
         insertion_sort(array, l, r);
     }
     else {
+        std::cout << "Else";
         int m = (l + r)/2;
         sort (array, l, m);
         sort (array, m + 1, r);

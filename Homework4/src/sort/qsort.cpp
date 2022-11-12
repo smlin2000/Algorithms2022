@@ -33,7 +33,7 @@ int find_previous(T pivot, std::vector<T> &array, int l, int r) { // add one mor
 template<class T>
 void insertion_sort(std::vector<T> &array, int l, int r)
 {
-    for(int i=l+1;i<r+1;i++){
+    for(int i = l + 1; i < r + 1; i++){
         T val = array[i] ;
         int k = i ;
         while (k > l && array[k-1] > val){
