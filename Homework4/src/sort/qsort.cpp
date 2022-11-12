@@ -24,44 +24,6 @@ void sort(std::vector<T> &array, int l, int r) {
 }*/
 
 template<class T>
-int find_pivot(std::vector<T> &array, int l, int r){
-    return array[((r + l)/ 2)];
-}
-
-template<class T>
-int find_next(int pivot, std::vector<T> &array, int l){
-    for (int i = l; i < array.size(); i++){
-        if (array[i] > pivot){
-            return i;
-        }
-    }
-}
-
-template<class T>
-int find_previous(int pivot, std::vector<T> &array, int r){
-    for (int i = r; i >= 0; i--){
-        if (array[i] < pivot){
-            return i;
-        }
-    }
-}
-
-template<class T>
-void insertion_sort(std::vector<T> array, int l, int r)
-  {
-    for(int i=l+1;i<r+1;i++){
-        int val = array[i] ;
-        int k = i ;
-        while (k > l && array[k-1] > val){
-            array[k]= array[k-1] ;
-            k-= 1;
-        }
-        array[k]= val ;
-    }
- 
-  }
-
-template<class T>
 void sort(std::vector<T> &array, int l, int r) {
     if (r - l <= 6){
         insertion_sort(array, l, r);
@@ -82,5 +44,44 @@ void sort(std::vector<T> &array, int l, int r) {
     }
 }
 
+template<class T>
+int find_pivot(std::vector<T> &array, int l, int r){
+    return array[((r + l)/ 2)];
+}
+template<class T>
+int find_next(int pivot, std::vector<T> &array, int l){
+    for (int i = l; i < array.size(); i++){
+        if (array[i] > pivot){
+            return i;
+        }
+    }
+}
+template<class T>
+int find_previous(int pivot, std::vector<T> &array, int r){
+    for (int i = r; i >= 0; i--){
+        if (array[i] < pivot){
+            return i;
+        }
+    }
+}
+template<class T>
+void insertion_sort(std::vector<T> &array, int l, int r)
+{
+    for(int i=l+1;i<r+1;i++){
+        int val = array[i] ;
+        int k = i ;
+        while (k > l && array[k-1] > val){
+            array[k]= array[k-1] ;
+            k-= 1;
+        }
+        array[k]= val ;
+    }
+ 
+}
+
+template void find_pivot(std::vector<int> &array, int l, int r);
+template void find_next(int pivot, std::vector<int> &array, int l);
+template void find_previous(int pivot, std::vector<int> &array, int r);
+template void insertion_sort(std::vector<T> &array, int l, int r);
 template void sort(std::vector<Edge> &array,  int l, int r);
 template void sort(std::vector<int> &array,  int l, int r);
