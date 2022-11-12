@@ -41,10 +41,10 @@ void heapify(std::vector<T> &heap, int N, int i) {
     end if*/
 
     if (right < N && right > left){
-        candidate = right
+        candidate = right;
     }
     else{
-        candidate = left
+        candidate = left;
     }
 
     /*if (value of node i < value of node candidate) then
@@ -56,8 +56,8 @@ void heapify(std::vector<T> &heap, int N, int i) {
     end if*/
     
     if (heap[i] < candidate){
-        std::swap(heap[i], candidate)
-        heapify(heap, N, candidate)
+        std::swap(heap[i], candidate);
+        heapify(heap, N, candidate);
     }
    
 
@@ -72,17 +72,17 @@ void sort(std::vector<T> &array, int l, int r) {
     int n = (r - l + 1);
     std::vector<T> &heap(n);
     for (int i = l; i <= r; i++){
-        heap [i - l] = array[i]
+        heap [i - l] = array[i];
     }
     for (int i = n/2-1; i >= 0; i--){
-        heapify(heap, n, i)
+        heapify(heap, n, i);
     }
     for (int i = n-1; i >= 0; i--){
-        std::swap(heap[0], heap[i])
-        heapify(heap, i, 0)
+        std::swap(heap[0], heap[i]);
+        heapify(heap, i, 0);
     }
     for (int i = 0; i <= r; i++){
-        array[i] = heap[i]
+        array[i] = heap[i];
     }
 }
 
