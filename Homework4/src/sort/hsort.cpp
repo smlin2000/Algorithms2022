@@ -56,7 +56,7 @@ void heapify(std::vector<T> &heap, int N, int i) {
 
     end if*/
     
-    if (heap[i] < candidate){
+    if (heap[i] < heap[candidate]){
         std::swap(heap[i], heap[candidate]);
         heapify(heap, N, candidate);
     }
