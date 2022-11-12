@@ -23,11 +23,11 @@ void sort(std::vector<T> &array, int l, int r) {
 
 }*/
 
-
-int find_pivot(std::vector<T> &array, int l, int r){
+template<class T>
+T find_pivot(std::vector<T> &array, int l, int r){
     return array[((r + l)/ 2)];
 }
-
+template<class T>
 int find_next(T pivot, std::vector<T> &array, int l){
     for (int i = l; i < array.size(); i++){
         if (array[i] > pivot){
@@ -36,7 +36,7 @@ int find_next(T pivot, std::vector<T> &array, int l){
     }
     return 0;
 }
-
+template<class T>
 int find_previous(T pivot, std::vector<T> &array, int r){
     for (int i = r; i >= 0; i--){
         if (array[i] < pivot){
@@ -65,7 +65,7 @@ void sort(std::vector<T> &array, int l, int r) {
         insertion_sort(array, l, r);
     }
     else{
-        int pivot = find_pivot(array, l, r);
+        T pivot = find_pivot(array, l, r);
         int low = find_next(pivot, array, l + 1);
         int high = find_previous(pivot, array, r - 2);
         while (low < high){
