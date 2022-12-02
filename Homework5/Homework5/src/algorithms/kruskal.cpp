@@ -11,5 +11,22 @@ std::vector<Edge> constructMSTKruskal(Graph G) {
     //              djs.join(u, v); Join sets of u and v into the same set
     
     // YOUR CODE HERE 
+
+    DisjointSet T(G.n); // Initialize the minimum spanning T
+    std::vector<Edge> MST;
+
+    int size_of_edges = ???; // the number of edges 
+    sort(edges, 0, size_of_edges - 1); // We sort the list of edges w.r.t edge's weight
+
+    for (auto e: edges) {
+        int u = e.u;
+        int v = e.v;
+        int w = e.w;
+        if (T.isOnSameSet(???, ???) == ???) { // If u and v is not connected or not on the same set. You have to fill in either true or false
+            T.join(???, ???); // We merge u and v together into T. You have to fill in here
+            MST.push_back(Edge(???, ???, ???)); // We add edge (u, v, w) into MST. You have to fill in here.
+        }
+    }
+    return MST;
 }
 
