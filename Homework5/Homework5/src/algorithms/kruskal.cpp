@@ -22,9 +22,9 @@ std::vector<Edge> constructMSTKruskal(Graph G) {
         int u = e.u;
         int v = e.v;
         int w = e.w;
-        if (T.isOnSameSet(u, v) == false) { // If u and v is not connected or not on the same set. You have to fill in either true or false
-            T.join(u, v); // We merge u and v together into T. You have to fill in here
-            MST.push_back(Edge(u, v, w)); // We add edge (u, v, w) into MST. You have to fill in here.
+        if (T.isOnSameSet(u, v) == false) { // If u and v is not connected or not on the same set. 
+            T.join(u, v); // We merge u and v together into T. 
+            MST.push_back(Edge(u, v, w)); // We add edge (u, v, w) into MST. 
         }
     }
     return MST;

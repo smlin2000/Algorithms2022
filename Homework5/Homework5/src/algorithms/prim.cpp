@@ -25,8 +25,8 @@ std::vector<Edge> constructMSTPrim(Graph G) {
     for (auto e: G.e[0]) { // Go to neighbor of 0 and update their distances and parents
         int v = e.v;
         int w = e.w;
-        distance[v] = w ; // You have to fill in here based on the pseudo code 
-        parent[v] = 0 ; // You have to fill in here based on the pseudo code
+        distance[v] = w ; 
+        parent[v] = 0 ;
     }
 
     for (int i = 1; i <= G.n - 1; ++i) { // We are going to add n - 1 vertices into the MST
@@ -34,7 +34,7 @@ std::vector<Edge> constructMSTPrim(Graph G) {
         for (int i = 0; i < G.n; ++i)
             if (distance[i] < minDistance && T[i] == false) // We are searching for a vertex not in the current minimum spanning tree and closest to the MST
                 minDistance = distance[i], u = i;
-        T[u] = u; // We add u into the minimum spanning tree T = T U { u }. You have to fill in here.
+        T[u] = u; // We add u into the minimum spanning tree T = T U { u }.
 
         MST.push_back( Edge( u, parent[u], distance[u]) ); // We add (u, parent[u], distance[u]) which is an edge of (u, parent[u], w(u, parent[u])) into MST
 
@@ -44,8 +44,8 @@ std::vector<Edge> constructMSTPrim(Graph G) {
             int v = e.v;
             int w = e.w;
             if (T[v] == false && w < distance[v]) {
-                distance[v] = w; // You have to fill in here based on the pseudo code 
-                parent[v] = u; // You have to fill in there based on the pseudo code
+                distance[v] = w;
+                parent[v] = u;
             }
         }
     }
